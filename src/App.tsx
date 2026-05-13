@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+const today = new Date().toISOString().slice(0, 10)
+
 export default function App() {
   const [count, setCount] = useState(0)
   const [history, setHistory] = useState<number[]>([])
@@ -13,7 +15,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 flex flex-col items-center justify-center gap-12 px-6 select-none">
+    <div className="min-h-screen bg-gray-950 flex flex-col items-center justify-center gap-12 px-6 select-none relative">
       <h1 className="text-gray-500 text-lg font-medium tracking-widest uppercase">
         Counter
       </h1>
@@ -68,6 +70,10 @@ export default function App() {
           </>
         )}
       </div>
+
+      <footer className="absolute bottom-6 text-gray-600 text-xs tabular-nums tracking-widest">
+        {today}
+      </footer>
     </div>
   )
 }
